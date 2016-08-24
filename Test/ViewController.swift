@@ -8,15 +8,9 @@
 
 import UIKit
 import CoreData
+import SafariServices
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-
-    
-    //your lifecycle code
-    
-    //temp array
-    let myarray = ["item1", "item2", "item3"]
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,SFSafariViewControllerDelegate {
     
     ///new stuff from json table view images
     
@@ -35,19 +29,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         var dthumb:String?
         var dname:String?
         var image:UIImage? = nil
+        var durl:String?
         
         init(add: NSDictionary)
         {
             dthumb = add["mThumb"] as? String
             dname = add["mName"] as? String
+            durl = add["mURL"] as? String
         }
     }
     
 @IBOutlet var tableview: UITableView!
-    
-    //end new stuff
-    
-    override func viewDidLoad() {
+  
+   override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib
         
@@ -57,11 +51,237 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         get_data_from_url(json_data_url)
         
-        //new ends
+    }
+    
+    
+        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+            
+            let data = TableData[indexPath.row]
+            
+
+            cell.textLabel?.text = data.dname
+            if (data.image == nil)
+            {
+                cell.imageView?.image = UIImage(named:"image.jpg")
+                load_image(image_base_url + data.dthumb!, imageview: cell.imageView!, index: indexPath.row)
+            }
+            else
+            {
+                cell.imageView?.image = TableData[indexPath.row].image
+            }
+            
+            return cell
+        }
+    
+    //try here Michael
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+            {
+                showTutorial(indexPath.row)
+            }
+    
+    func showTutorial(which: Int) {
+        if let url = NSURL(string: "http://cruzy.co/images/Frozen.mp4")
+            //if let url = NSURL(string: data.durl)
+        {
+            let vc = SFSafariViewController(URL: url, entersReaderIfAvailable: true)
+            presentViewController(vc, animated: true, completion: nil)
+        }
+    }
+    
+    //try here Michael ends
+    
+        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            
+            return TableData.count
+        }
+    
+        
+    func get_data_from_url(url:String)
+        {
+            
+            
+            let url:NSURL = NSURL(string: url)!
+            let session = NSURLSession.sharedSession()
+            
+            let request = NSMutableURLRequest(URL: url)
+            request.HTTPMethod = "GET"
+            request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+            
+            
+            let task = session.dataTaskWithRequest(request) {
+                (
+                let data, let response, let error) in
+                
+                guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+                    print("error")
+                    return
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.extract_json(data!)
+                    return
+                })
+                
+            }
+            
+            task.resume()
+            
+        }
         
         
+        func extract_json(jsonData:NSData)
+        {
+            let json: AnyObject?
+            do {
+                json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: [])
+            } catch {
+                json = nil
+                return
+            }
+            
+            if let list = json as? NSArray
+            {
+                for (var i = 0; i < list.count ; i+=1 )
+                {
+                    if let data_block = list[i] as? NSDictionary
+                    {
+                        
+                        TableData.append(datastruct(add: data_block))
+                    }
+                }
+                
+                do
+                {
+                    try read()
+                }
+                catch
+                {
+                }
+                
+                do_table_refresh()
+                
+            }
+            
+            
+        }
+        
+        
+        
+        
+        func do_table_refresh()
+        {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tableview.reloadData()
+                return
+            })
+        }
+        
+        
+        func load_image(urlString:String, imageview:UIImageView, index:NSInteger)
+        {
+            
+            let url:NSURL = NSURL(string: urlString)!
+            let session = NSURLSession.sharedSession()
+            
+            let task = session.downloadTaskWithURL(url) {
+                (
+                let location, let response, let error) in
+                
+                guard let _:NSURL = location, let _:NSURLResponse = response  where error == nil else {
+                    print("error")
+                    return
+                }
+                
+                let imageData = NSData(contentsOfURL: location!)
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    
+                    self.TableData[index].image = UIImage(data: imageData!)
+                    self.save(index,image: self.TableData[index].image!)
+                    
+                    imageview.image = self.TableData[index].image
+                    return
+                })
+                
+                
+            }
+            
+            task.resume()
+            
+            
+        }
+        
+        
+        
+        
+        
+        func read() throws
+        {
+            
+            do
+            {
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                let managedContext = appDelegate.managedObjectContext!
+                let fetchRequest = NSFetchRequest(entityName: "Images")
+                
+                let fetchedResults = try managedContext.executeFetchRequest(fetchRequest)
+                
+                for (var i=0; i < fetchedResults.count; i+=1)
+                    //for (i in 0 ..< fetchedResults.count)
+                {
+                    let single_result = fetchedResults[i]
+                    let index = single_result.valueForKey("index") as! NSInteger
+                    let img: NSData? = single_result.valueForKey("image") as? NSData
+                    
+                    TableData[index].image = UIImage(data: img!)
+                    
+                }
+                
+            }
+            catch
+            {
+                print("error")
+                throw ErrorHandler.ErrorFetchingResults
+            }
+            
+        }
+        
+        
+        func save(id:Int,image:UIImage)
+        {
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let managedContext = appDelegate.managedObjectContext!
+            
+            let entity = NSEntityDescription.entityForName("Images",
+                                                           inManagedObjectContext: managedContext)
+            let options = NSManagedObject(entity: entity!,
+                                          insertIntoManagedObjectContext:managedContext)
+            
+            let newImageData = UIImageJPEGRepresentation(image,1)
+            
+            options.setValue(id, forKey: "index")
+            options.setValue(newImageData, forKey: "image")
+            
+            do {
+                try managedContext.save()
+            } catch
+            {
+                print("error")
+            }
+            
+        }
+    
+        override func viewDidAppear(animated: Bool) {
+            super.viewDidAppear(animated)
+            tableview.reloadData()
+        }
+    
+    /*
         //external json array starts
-        
+     
         let requestURL: NSURL = NSURL(string: "http://cruzy.co/movlist5.json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
         let session = NSURLSession.sharedSession()
@@ -125,233 +345,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         task.resume()
         
         //external json array ends
-        
+    */
         
         
     //end of viewDidLoad()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    //2nd snippet - cellForRowAtIndexPath
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        
-        //as! UITableViewCell
-        let data = TableData[indexPath.row]
-        
-        cell.textLabel?.text = data.dname
-        if (data.image == nil)
-        {
-            cell.imageView?.image = UIImage(named:"image.jpg")
-            load_image(image_base_url + data.dthumb!, imageview: cell.imageView!, index: indexPath.row)
-        }
-        else
-        {
-            cell.imageView?.image = TableData[indexPath.row].image
-        }
-        
-        return cell
-    }
-    //2nd snippet end
-    
-    //1 snippet - NumberofRowsInSection Method
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        //To be updated for movie array
-        
-        return TableData.count
-    }
-    //1 snippet end
-    
-    func get_data_from_url(url:String)
-    {
-        
-        
-        let url:NSURL = NSURL(string: url)!
-        let session = NSURLSession.sharedSession()
-        
-        let request = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "GET"
-        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
-        
-        
-        let task = session.dataTaskWithRequest(request) {
-            (
-            let data, let response, let error) in
-            
-            guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
-                print("error")
-                return
-            }
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                self.extract_json(data!)
-                return
-            })
-            
-        }
-        
-        task.resume()
-        
-    }
-    
-    
-    func extract_json(jsonData:NSData)
-    {
-        let json: AnyObject?
-        do {
-            json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: [])
-        } catch {
-            json = nil
-            return
-        }
-        
-        if let list = json as? NSArray
-        {
-            for (var i = 0; i < list.count ; i++ )
-            {
-                if let data_block = list[i] as? NSDictionary
-                {
-                    
-                    TableData.append(datastruct(add: data_block))
-                }
-            }
-            
-            do
-            {
-                try read()
-            }
-            catch
-            {
-            }
-            
-            do_table_refresh()
-            
-        }
-        
-        
-    }
-    
-    
-    
-    
-    func do_table_refresh()
-    {
-        dispatch_async(dispatch_get_main_queue(), {
-            self.tableview.reloadData()
-            return
-        })
-    }
-    
-    
-    func load_image(urlString:String, imageview:UIImageView, index:NSInteger)
-    {
-        
-        let url:NSURL = NSURL(string: urlString)!
-        let session = NSURLSession.sharedSession()
-        
-        let task = session.downloadTaskWithURL(url) {
-            (
-            let location, let response, let error) in
-            
-            guard let _:NSURL = location, let _:NSURLResponse = response  where error == nil else {
-                print("error")
-                return
-            }
-            
-            let imageData = NSData(contentsOfURL: location!)
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                
-                
-                self.TableData[index].image = UIImage(data: imageData!)
-                self.save(index,image: self.TableData[index].image!)
-                
-                imageview.image = self.TableData[index].image
-                return
-            })
-            
-            
-        }
-        
-        task.resume()
-        
-        
-    }
-    
-    
-    
-    
-  
-    func read() throws
-    {
-        
-        do
-        {
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            let managedContext = appDelegate.managedObjectContext!
-            let fetchRequest = NSFetchRequest(entityName: "Images")
-            
-            let fetchedResults = try managedContext.executeFetchRequest(fetchRequest)
-            
-            for (var i=0; i < fetchedResults.count; i++)
-            {
-                let single_result = fetchedResults[i]
-                let index = single_result.valueForKey("index") as! NSInteger
-                let img: NSData? = single_result.valueForKey("image") as? NSData
-                
-                TableData[index].image = UIImage(data: img!)
-                
-            }
-            
-        }
-        catch
-        {
-            print("error")
-            throw ErrorHandler.ErrorFetchingResults
-        }
-        
-    }
-   
-    
-    func save(id:Int,image:UIImage)
-    {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext!
-        
-        let entity = NSEntityDescription.entityForName("Images",
-                                                       inManagedObjectContext: managedContext)
-        let options = NSManagedObject(entity: entity!,
-                                      insertIntoManagedObjectContext:managedContext)
-        
-        let newImageData = UIImageJPEGRepresentation(image,1)
-        
-        options.setValue(id, forKey: "index")
-        options.setValue(newImageData, forKey: "image")
-        
-        do {
-            try managedContext.save()
-        } catch
-        {
-            print("error")
-        }
-        
-    }
- 
-    
-    //3 snippet
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        tableview.reloadData()
-    }
-    //3 snippet end
 
 }
-
-
-
