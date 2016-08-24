@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     ///new stuff from json table view images
     
-    var json_data_url = "http://cruzy.co/movlist5.json"
+    var json_data_url = "http://cruzy.co/movlist12.json"
     var image_base_url = "http://cruzy.co/images/"
     
     var TableData:Array< datastruct > = Array < datastruct >()
@@ -147,7 +147,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.textLabel?.text = data.dname
         if (data.image == nil)
         {
-            cell.imageView?.image = UIImage(named:"Frozen.jpg")
+            cell.imageView?.image = UIImage(named:"image.jpg")
             load_image(image_base_url + data.dthumb!, imageview: cell.imageView!, index: indexPath.row)
         }
         else
