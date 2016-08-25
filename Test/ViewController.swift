@@ -14,7 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     ///new stuff from json table view images
     
-    var json_data_url = "http://cruzy.co/movlist18.json"
+    var json_data_url = "http://cruzy.co/list.json"
     var image_base_url = "http://cruzy.co/images/"
     
     var TableData:Array< datastruct > = Array < datastruct >()
@@ -154,6 +154,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 do
                 {
                     try read()
+                    //print("")
                 }
                 catch
                 {
@@ -217,6 +218,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         
         
+    
         func read() throws
         {
             
@@ -228,8 +230,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 let fetchedResults = try managedContext.executeFetchRequest(fetchRequest)
                 
+                //for (var i=0; i < 0; i+=1)
                 for (var i=0; i < fetchedResults.count; i+=1)
-                    //for (i in 0 ..< fetchedResults.count)
+                    
                 {
                     let single_result = fetchedResults[i]
                     let index = single_result.valueForKey("index") as! NSInteger
@@ -247,7 +250,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             
         }
-        
+  
         
         func save(id:Int,image:UIImage)
         {
