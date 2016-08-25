@@ -14,7 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     ///new stuff from json table view images
     
-    var json_data_url = "http://cruzy.co/movlist12.json"
+    var json_data_url = "http://cruzy.co/movlist18.json"
     var image_base_url = "http://cruzy.co/images/"
     
     var TableData:Array< datastruct > = Array < datastruct >()
@@ -26,32 +26,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     struct datastruct
     {
-        var dthumb:String?
+        
         var dname:String?
         var image:UIImage? = nil
-        var durl:String?
         
         init(add: NSDictionary)
         {
-            dthumb = add["mThumb"] as? String
+            
             dname = add["mName"] as? String
-            durl = add["mURL"] as? String
         }
     }
     
-@IBOutlet var tableview: UITableView!
+    
+    
+   @IBOutlet var tableview: UITableView!
   
    override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib
-        
+    
         //new
         tableview.dataSource = self
         tableview.delegate = self
-        
+    
         get_data_from_url(json_data_url)
-        
-    }
+    
+        }
     
     
         func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -64,7 +64,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if (data.image == nil)
             {
                 cell.imageView?.image = UIImage(named:"image.jpg")
-                load_image(image_base_url + data.dthumb!, imageview: cell.imageView!, index: indexPath.row)
+                load_image(image_base_url + data.dname! + ".jpg", imageview: cell.imageView!, index: indexPath.row)
             }
             else
             {
@@ -74,25 +74,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return cell
         }
     
-    //try here Michael
-    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-            {
-                showTutorial(indexPath.row)
-            }
-    
-    func showTutorial(which: Int) {
-        if let url = NSURL(string: "http://cruzy.co/images/Frozen.mp4")
-            //if let url = NSURL(string: data.durl)
-        {
-            let vc = SFSafariViewController(URL: url, entersReaderIfAvailable: true)
-            presentViewController(vc, animated: true, completion: nil)
-        }
+    {
+        showVideo(TableData[indexPath.row].dname!)
     }
     
-    //try here Michael ends
+    func showVideo(which: String)
+    {
+        
+        if let url = NSURL(string: "http://cruzy.co/images/\(which)" + ".mp4")
+            {
+            let vc = SFSafariViewController(URL: url, entersReaderIfAvailable: true)
+            presentViewController(vc, animated: true, completion: nil)
+            
+            }
+    }
     
-        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             
             return TableData.count
         }
@@ -279,75 +278,4 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             tableview.reloadData()
         }
     
-    /*
-        //external json array starts
-     
-        let requestURL: NSURL = NSURL(string: "http://cruzy.co/movlist5.json")!
-        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(urlRequest) {
-            (data, response, error) -> Void in
-            
-            let httpResponse = response as! NSHTTPURLResponse
-            let statusCode = httpResponse.statusCode
-            
-            if (statusCode == 200) {
-                print("Everyone is fine, file downloaded successfully.")
-                
-                do{
-                    
-                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments)
-                    
-                    
-                    //creates moviesArray
-                    if let movies = json["movies"] as? [[String: AnyObject]] {
-                        
-                        //for each movie in the moviesArray
-                        for movie in movies {
-                            
-                            //find the movie name tag
-                            if let mname = movie["mName"] as? String {
-                                
-                                //find the movie thumb tag
-                                if let thumb = movie["mThumb"] as? String {
-                                    
-                                    //find the movie url tag
-                                    if let url = movie["mURL"] as? String {
-                                        
-                                        //print(name,year)
-                                        print(mname,thumb,url)
-                                        
-                                        //temp make array
-                                        
-                                     
-                                    //end of movie url tag
-                                    }
-                                //end of movie thumb tag
-                                }
-                            //end of movie name tag
-                            }
-                        //end of for loop
-                        }
-                    //end of movies array
-                    }
-                //end of do while loop
-                }
-                
-                catch {
-                    print("Error with Json: \(error)")
-                //end of catch
-                }
-            //end of if for JSON download
-            }
-        //end of task
-        }
-        
-        task.resume()
-        
-        //external json array ends
-    */
-        
-        
-    //end of viewDidLoad()
-
-}
+    }
