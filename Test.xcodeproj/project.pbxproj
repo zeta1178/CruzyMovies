@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB0E7F961D713C8000FA2088 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB0E7F951D713C8000FA2088 /* image.jpg */; };
 		AB0E7F9C1D714A6A00FA2088 /* json_table_view_images.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB0E7F9A1D714A6A00FA2088 /* json_table_view_images.xcdatamodeld */; };
 		AB55C7C91D6CE0070052891C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C7C81D6CE0070052891C /* AppDelegate.swift */; };
 		AB55C7CB1D6CE0070052891C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C7CA1D6CE0070052891C /* ViewController.swift */; };
@@ -16,6 +15,7 @@
 		AB55C7D31D6CE0070052891C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB55C7D11D6CE0070052891C /* LaunchScreen.storyboard */; };
 		AB55C7DE1D6CE0070052891C /* TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C7DD1D6CE0070052891C /* TestTests.swift */; };
 		AB55C7E91D6CE0070052891C /* TestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C7E81D6CE0070052891C /* TestUITests.swift */; };
+		ABC889E21D74933B0006334A /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ABC889E11D74933B0006334A /* image.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AB0E7F951D713C8000FA2088 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image.jpg; path = ../../Downloads/uitableview_load_data_from_json_swift_2/json_table_view_images/image.jpg; sourceTree = "<group>"; };
 		AB0E7F9B1D714A6A00FA2088 /* json_table_view_images.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = json_table_view_images.xcdatamodel; sourceTree = "<group>"; };
 		AB55C7C51D6CE0070052891C /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB55C7C81D6CE0070052891C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		AB55C7E41D6CE0070052891C /* TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB55C7E81D6CE0070052891C /* TestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUITests.swift; sourceTree = "<group>"; };
 		AB55C7EA1D6CE0070052891C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABC889E11D74933B0006334A /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +105,7 @@
 				AB55C7CA1D6CE0070052891C /* ViewController.swift */,
 				AB55C7CC1D6CE0070052891C /* Main.storyboard */,
 				AB55C7CF1D6CE0070052891C /* Assets.xcassets */,
-				AB0E7F951D713C8000FA2088 /* image.jpg */,
+				ABC889E11D74933B0006334A /* image.jpg */,
 				AB0E7F9A1D714A6A00FA2088 /* json_table_view_images.xcdatamodeld */,
 				AB55C7D11D6CE0070052891C /* LaunchScreen.storyboard */,
 				AB55C7D41D6CE0070052891C /* Info.plist */,
@@ -238,7 +238,7 @@
 				AB55C7D31D6CE0070052891C /* LaunchScreen.storyboard in Resources */,
 				AB55C7D01D6CE0070052891C /* Assets.xcassets in Resources */,
 				AB55C7CE1D6CE0070052891C /* Main.storyboard in Resources */,
-				AB0E7F961D713C8000FA2088 /* image.jpg in Resources */,
+				ABC889E21D74933B0006334A /* image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
