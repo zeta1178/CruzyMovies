@@ -13,62 +13,25 @@
 		AB55C7CE1D6CE0070052891C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB55C7CC1D6CE0070052891C /* Main.storyboard */; };
 		AB55C7D01D6CE0070052891C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB55C7CF1D6CE0070052891C /* Assets.xcassets */; };
 		AB55C7D31D6CE0070052891C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB55C7D11D6CE0070052891C /* LaunchScreen.storyboard */; };
-		AB55C7DE1D6CE0070052891C /* TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C7DD1D6CE0070052891C /* TestTests.swift */; };
-		AB55C7E91D6CE0070052891C /* TestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55C7E81D6CE0070052891C /* TestUITests.swift */; };
+		AB8AF4B71D7761C90081778B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF4B61D7761C90081778B /* Default-568h@2x.png */; };
 		ABC889E41D749E2E0006334A /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ABC889E31D749E2E0006334A /* image.jpg */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		AB55C7DA1D6CE0070052891C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AB55C7BD1D6CE0060052891C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AB55C7C41D6CE0070052891C;
-			remoteInfo = Test;
-		};
-		AB55C7E51D6CE0070052891C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AB55C7BD1D6CE0060052891C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AB55C7C41D6CE0070052891C;
-			remoteInfo = Test;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		AB0E7F9B1D714A6A00FA2088 /* json_table_view_images.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = json_table_view_images.xcdatamodel; sourceTree = "<group>"; };
-		AB55C7C51D6CE0070052891C /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB55C7C51D6CE0070052891C /* CruzyMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CruzyMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB55C7C81D6CE0070052891C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB55C7CA1D6CE0070052891C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AB55C7CD1D6CE0070052891C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB55C7CF1D6CE0070052891C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB55C7D21D6CE0070052891C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AB55C7D41D6CE0070052891C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB55C7D91D6CE0070052891C /* TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB55C7DD1D6CE0070052891C /* TestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTests.swift; sourceTree = "<group>"; };
-		AB55C7DF1D6CE0070052891C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB55C7E41D6CE0070052891C /* TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB55C7E81D6CE0070052891C /* TestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUITests.swift; sourceTree = "<group>"; };
-		AB55C7EA1D6CE0070052891C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB8AF4B41D7761690081778B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CruzyMovies/Info.plist; sourceTree = SOURCE_ROOT; };
+		AB8AF4B61D7761C90081778B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ABC889E31D749E2E0006334A /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AB55C7C21D6CE0070052891C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AB55C7D61D6CE0070052891C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AB55C7E11D6CE0070052891C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -81,9 +44,8 @@
 		AB55C7BC1D6CE0060052891C = {
 			isa = PBXGroup;
 			children = (
-				AB55C7C71D6CE0070052891C /* Test */,
-				AB55C7DC1D6CE0070052891C /* TestTests */,
-				AB55C7E71D6CE0070052891C /* TestUITests */,
+				AB8AF4B61D7761C90081778B /* Default-568h@2x.png */,
+				AB55C7C71D6CE0070052891C /* CruzyMovies */,
 				AB55C7C61D6CE0070052891C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,14 +53,12 @@
 		AB55C7C61D6CE0070052891C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AB55C7C51D6CE0070052891C /* Test.app */,
-				AB55C7D91D6CE0070052891C /* TestTests.xctest */,
-				AB55C7E41D6CE0070052891C /* TestUITests.xctest */,
+				AB55C7C51D6CE0070052891C /* CruzyMovies.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AB55C7C71D6CE0070052891C /* Test */ = {
+		AB55C7C71D6CE0070052891C /* CruzyMovies */ = {
 			isa = PBXGroup;
 			children = (
 				AB55C7C81D6CE0070052891C /* AppDelegate.swift */,
@@ -108,35 +68,17 @@
 				ABC889E31D749E2E0006334A /* image.jpg */,
 				AB0E7F9A1D714A6A00FA2088 /* json_table_view_images.xcdatamodeld */,
 				AB55C7D11D6CE0070052891C /* LaunchScreen.storyboard */,
-				AB55C7D41D6CE0070052891C /* Info.plist */,
+				AB8AF4B41D7761690081778B /* Info.plist */,
 			);
-			path = Test;
-			sourceTree = "<group>";
-		};
-		AB55C7DC1D6CE0070052891C /* TestTests */ = {
-			isa = PBXGroup;
-			children = (
-				AB55C7DD1D6CE0070052891C /* TestTests.swift */,
-				AB55C7DF1D6CE0070052891C /* Info.plist */,
-			);
-			path = TestTests;
-			sourceTree = "<group>";
-		};
-		AB55C7E71D6CE0070052891C /* TestUITests */ = {
-			isa = PBXGroup;
-			children = (
-				AB55C7E81D6CE0070052891C /* TestUITests.swift */,
-				AB55C7EA1D6CE0070052891C /* Info.plist */,
-			);
-			path = TestUITests;
+			path = CruzyMovies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AB55C7C41D6CE0070052891C /* Test */ = {
+		AB55C7C41D6CE0070052891C /* CruzyMovies */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB55C7ED1D6CE0070052891C /* Build configuration list for PBXNativeTarget "Test" */;
+			buildConfigurationList = AB55C7ED1D6CE0070052891C /* Build configuration list for PBXNativeTarget "CruzyMovies" */;
 			buildPhases = (
 				AB55C7C11D6CE0070052891C /* Sources */,
 				AB55C7C21D6CE0070052891C /* Frameworks */,
@@ -146,46 +88,10 @@
 			);
 			dependencies = (
 			);
-			name = Test;
+			name = CruzyMovies;
 			productName = Test;
-			productReference = AB55C7C51D6CE0070052891C /* Test.app */;
+			productReference = AB55C7C51D6CE0070052891C /* CruzyMovies.app */;
 			productType = "com.apple.product-type.application";
-		};
-		AB55C7D81D6CE0070052891C /* TestTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AB55C7F01D6CE0070052891C /* Build configuration list for PBXNativeTarget "TestTests" */;
-			buildPhases = (
-				AB55C7D51D6CE0070052891C /* Sources */,
-				AB55C7D61D6CE0070052891C /* Frameworks */,
-				AB55C7D71D6CE0070052891C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AB55C7DB1D6CE0070052891C /* PBXTargetDependency */,
-			);
-			name = TestTests;
-			productName = TestTests;
-			productReference = AB55C7D91D6CE0070052891C /* TestTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		AB55C7E31D6CE0070052891C /* TestUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AB55C7F31D6CE0070052891C /* Build configuration list for PBXNativeTarget "TestUITests" */;
-			buildPhases = (
-				AB55C7E01D6CE0070052891C /* Sources */,
-				AB55C7E11D6CE0070052891C /* Frameworks */,
-				AB55C7E21D6CE0070052891C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AB55C7E61D6CE0070052891C /* PBXTargetDependency */,
-			);
-			name = TestUITests;
-			productName = TestUITests;
-			productReference = AB55C7E41D6CE0070052891C /* TestUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -199,18 +105,11 @@
 				TargetAttributes = {
 					AB55C7C41D6CE0070052891C = {
 						CreatedOnToolsVersion = 7.3.1;
-					};
-					AB55C7D81D6CE0070052891C = {
-						CreatedOnToolsVersion = 7.3.1;
-						TestTargetID = AB55C7C41D6CE0070052891C;
-					};
-					AB55C7E31D6CE0070052891C = {
-						CreatedOnToolsVersion = 7.3.1;
-						TestTargetID = AB55C7C41D6CE0070052891C;
+						DevelopmentTeam = NQS57WE77C;
 					};
 				};
 			};
-			buildConfigurationList = AB55C7C01D6CE0060052891C /* Build configuration list for PBXProject "Test" */;
+			buildConfigurationList = AB55C7C01D6CE0060052891C /* Build configuration list for PBXProject "CruzyMovies" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -223,9 +122,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AB55C7C41D6CE0070052891C /* Test */,
-				AB55C7D81D6CE0070052891C /* TestTests */,
-				AB55C7E31D6CE0070052891C /* TestUITests */,
+				AB55C7C41D6CE0070052891C /* CruzyMovies */,
 			);
 		};
 /* End PBXProject section */
@@ -239,20 +136,7 @@
 				AB55C7D01D6CE0070052891C /* Assets.xcassets in Resources */,
 				AB55C7CE1D6CE0070052891C /* Main.storyboard in Resources */,
 				ABC889E41D749E2E0006334A /* image.jpg in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AB55C7D71D6CE0070052891C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AB55C7E21D6CE0070052891C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				AB8AF4B71D7761C90081778B /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,36 +153,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB55C7D51D6CE0070052891C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AB55C7DE1D6CE0070052891C /* TestTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AB55C7E01D6CE0070052891C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AB55C7E91D6CE0070052891C /* TestUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		AB55C7DB1D6CE0070052891C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AB55C7C41D6CE0070052891C /* Test */;
-			targetProxy = AB55C7DA1D6CE0070052891C /* PBXContainerItemProxy */;
-		};
-		AB55C7E61D6CE0070052891C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AB55C7C41D6CE0070052891C /* Test */;
-			targetProxy = AB55C7E51D6CE0070052891C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AB55C7CC1D6CE0070052891C /* Main.storyboard */ = {
@@ -407,10 +262,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Test/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/CruzyMovies/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MichaelCruz.Test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = co.Cruzy.CruzyMovies;
+				PRODUCT_NAME = CruzyMovies;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -418,63 +276,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Test/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/CruzyMovies/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MichaelCruz.Test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		AB55C7F11D6CE0070052891C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = TestTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MichaelCruz.TestTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Test.app/Test";
-			};
-			name = Debug;
-		};
-		AB55C7F21D6CE0070052891C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = TestTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MichaelCruz.TestTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Test.app/Test";
-			};
-			name = Release;
-		};
-		AB55C7F41D6CE0070052891C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = TestUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MichaelCruz.TestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Test;
-			};
-			name = Debug;
-		};
-		AB55C7F51D6CE0070052891C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = TestUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MichaelCruz.TestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Test;
+				PRODUCT_BUNDLE_IDENTIFIER = co.Cruzy.CruzyMovies;
+				PRODUCT_NAME = CruzyMovies;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AB55C7C01D6CE0060052891C /* Build configuration list for PBXProject "Test" */ = {
+		AB55C7C01D6CE0060052891C /* Build configuration list for PBXProject "CruzyMovies" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB55C7EB1D6CE0070052891C /* Debug */,
@@ -483,29 +298,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB55C7ED1D6CE0070052891C /* Build configuration list for PBXNativeTarget "Test" */ = {
+		AB55C7ED1D6CE0070052891C /* Build configuration list for PBXNativeTarget "CruzyMovies" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB55C7EE1D6CE0070052891C /* Debug */,
 				AB55C7EF1D6CE0070052891C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AB55C7F01D6CE0070052891C /* Build configuration list for PBXNativeTarget "TestTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AB55C7F11D6CE0070052891C /* Debug */,
-				AB55C7F21D6CE0070052891C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AB55C7F31D6CE0070052891C /* Build configuration list for PBXNativeTarget "TestUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AB55C7F41D6CE0070052891C /* Debug */,
-				AB55C7F51D6CE0070052891C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

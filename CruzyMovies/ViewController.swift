@@ -14,7 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     ///new stuff from json table view images
     
-    var json_data_url = "http://cruzy.co/list2.json"
+    var json_data_url = "http://cruzy.co/list.json"
     var image_base_url = "http://cruzy.co/images/"
     
     var TableData:Array< datastruct > = Array < datastruct >()
