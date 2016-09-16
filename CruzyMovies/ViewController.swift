@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Test
+//  CruzyMovies
 //
 //  Created by Michael Cruz on 8/23/16.
 //  Copyright © 2016 Michael Cruz. All rights reserved.
@@ -14,7 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     ///new stuff from json table view images
     
-    var json_data_url = "http://cruzy.co/list.json"
+    var json_data_url = "http://cruzy.co/list2.json"
     var image_base_url = "http://cruzy.co/images/"
     
     var TableData:Array< datastruct > = Array < datastruct >()
