@@ -142,7 +142,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             if let list = json as? NSArray
             {
-                for (var i = 0; i < list.count ; i+=1 )
+                for i in (0..<list.count)
                 {
                     if let data_block = list[i] as? NSDictionary
                     {
@@ -151,23 +151,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     }
                 }
                 
-                do
-                {
-                    //try read()
-                    print("")
-                }
-                catch
-                {
-                }
-                
                 do_table_refresh()
                 
             }
             
             
         }
-        
-        
         
         
         func do_table_refresh()
@@ -198,10 +187,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     
-                    
                     self.TableData[index].image = UIImage(data: imageData!)
-                    // self.save(index,image: self.TableData[index].image!)
-                    
                     imageview.image = self.TableData[index].image
                     return
                 })
@@ -213,71 +199,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             
         }
-        
-        
-        
-        
-      /*
-    
-        func read() throws
-        {
-            
-            do
-            {
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                let managedContext = appDelegate.managedObjectContext!
-                let fetchRequest = NSFetchRequest(entityName: "Images")
-                
-                let fetchedResults = try managedContext.executeFetchRequest(fetchRequest)
-                
-                for (var i=0; i < 0; i+=1)
-                //for (var i=0; i < fetchedResults.count; i+=1)
-                    
-                {
-                    let single_result = fetchedResults[i]
-                    let index = single_result.valueForKey("index") as! NSInteger
-                    let img: NSData? = single_result.valueForKey("image") as? NSData
-                    
-                    TableData[index].image = UIImage(data: img!)
-                    
-                }
-                
-            }
-            catch
-            {
-                print("error")
-                throw ErrorHandler.ErrorFetchingResults
-            }
-            
-        }
  
-
-        
-        func save(id:Int,image:UIImage)
-        {
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            let managedContext = appDelegate.managedObjectContext!
-            
-            let entity = NSEntityDescription.entityForName("Images",
-                                                           inManagedObjectContext: managedContext)
-            let options = NSManagedObject(entity: entity!,
-                                          insertIntoManagedObjectContext:managedContext)
-            
-            let newImageData = UIImageJPEGRepresentation(image,1)
-            
-            options.setValue(id, forKey: "index")
-            options.setValue(newImageData, forKey: "image")
-            
-            do {
-                try managedContext.save()
-            } catch
-            {
-                print("error")
-            }
-            
-        }
-    */
-    
         override func viewDidAppear(animated: Bool) {
             super.viewDidAppear(animated)
             tableview.reloadData()
