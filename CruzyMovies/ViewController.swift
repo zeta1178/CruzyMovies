@@ -200,7 +200,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     
                     
                     self.TableData[index].image = UIImage(data: imageData!)
-                    self.save(index,image: self.TableData[index].image!)
+                    // self.save(index,image: self.TableData[index].image!)
                     
                     imageview.image = self.TableData[index].image
                     return
@@ -217,7 +217,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         
         
-        
+      /*
     
         func read() throws
         {
@@ -250,7 +250,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             
         }
-  
+ 
+
         
         func save(id:Int,image:UIImage)
         {
@@ -275,6 +276,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             
         }
+    */
     
         override func viewDidAppear(animated: Bool) {
             super.viewDidAppear(animated)
